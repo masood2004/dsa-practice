@@ -84,22 +84,51 @@ public class LinkedList {
         }
     }
 
+    public boolean contains(String data) {
+        Node current = head;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    public int indexOf(String data) {
+        Node current = head;
+        int index = 0;
+
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
     public void display() {
         Node current = head;
         while (current != null) {
             System.out.print(current.data + " -> ");
             current = current.next;
         }
-        System.out.print("End");
+        System.out.println("End");
     }
 
     public static void main(String args[]) {
         LinkedList l1 = new LinkedList();
-        l1.addFirst("1");
-        l1.addLast("last");
-        l1.addMiddle("Added at 1", 1);
-        l1.deleteFirst();
-        l1.deleteLast();
+        l1.addFirst("Node 1");
+        l1.addFirst("Node 2");
+        l1.addFirst("Node 3");
+        l1.addFirst("Node 4");
+        l1.addFirst("Node 5");
+        l1.addLast("Node 6");
+        l1.addMiddle("Node 7", 5);
         l1.display();
+        System.out.println(l1.contains("Added at 1"));
+        System.out.println(l1.indexOf("Added at 2"));
     }
 }
