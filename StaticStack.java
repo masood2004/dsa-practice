@@ -26,6 +26,15 @@ public class StaticStack {
         return stack[top--];
     }
 
+    public int peek() {
+        if (isEmpty()) {
+            System.out.println("Stack is already empty.");
+            return -1;
+        }
+        ;
+        return stack[top];
+    }
+
     public boolean isFull() {
         return top == size - 1;
     }
@@ -39,7 +48,7 @@ public class StaticStack {
             System.out.println("Stack is Empty.");
             return;
         }
-        for (int i = 0; i <= top; i++) {
+        for (int i = top; i >= 0; i--) {
             System.out.println(stack[i]);
         }
     }
@@ -56,5 +65,6 @@ public class StaticStack {
         ss.pop();
         ss.pop();
         ss.display();
+        System.out.println(ss.peek());
     }
 }
