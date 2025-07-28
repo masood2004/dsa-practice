@@ -27,6 +27,13 @@ public class DynamicStack {
         return value;
     }
 
+    public String peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("Stack underflow!");
+        }
+        return top.data;
+    }
+
     public boolean isEmpty() {
         return top == null;
     }
@@ -50,5 +57,6 @@ public class DynamicStack {
         ds.push("Stack 5");
 
         ds.display();
+        System.out.println(ds.peek());
     }
 }
